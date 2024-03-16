@@ -15,5 +15,62 @@
 }
 
 .heading{
-  color: green;
+  color: rgb(244, 10, 10);
+  background-color: rgb(191, 187, 187);
+  text-align: center; /* Left, Right, Center */
+  /*
+  text-decoration-line: underline;  // overline, line-through, underLine 
+  text-decoration-color: black;
+  text-decoration-style: solid; // solid, double, dotted, dashed, wavy 
+  text-decoration-thickness: 2px;
+  */
+  text-decoration: underline blue solid 2px;
+  text-transform: capitalize; /* lowercase, uppercase, capitalize */
+}
+
+.para{
+  text-indent: 100px;
+  letter-spacing: 5px;
+  word-spacing: 15px;
+  line-height: 2.5;
+}
+
+.absolute-box{
+  height: 400px;
+  width: 600px;
+  background-color: blue;
+}
+
+.relative-box{
+  height: 25vh;
+  width: 50vw;
+  background-color: aquamarine;
+}
+
+.percentage{
+  height: 100px;
+  background-color: black;
+  width: 25%;
+}
+
+.parent-container{
+  display: flex;
+  flex-direction: row; /* row | row-reverse | column | column-reverse */
+  flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
+  justify-content: center; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+  height: 500px;
+  background-color: antiquewhite;
+}
+
+.box{
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid;
+}
+
+.image-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
