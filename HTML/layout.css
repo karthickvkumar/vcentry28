@@ -1,0 +1,45 @@
+.outer-container{
+  background-color: rgb(214, 236, 255);
+  width: 50vw;
+  height: 90vh;
+}
+
+.logo-container{
+  background-color: aquamarine;
+  height: 10%;
+}
+
+.navigation-container{
+  background-color: blueviolet;
+  height: 6%
+}
+
+.header-container{
+  background-color: burlywood;
+  height: 24%;
+}
+
+.sidebar-contanier{
+  background-color: cadetblue;
+  width: 25%;
+  height: 100%;
+  overflow: auto;
+}
+
+.body-container{
+  background-color: gold;
+  width: 75%;
+  height: 100%;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 50%;
+}
+
+.footer-container{
+  background-color: chocolate;
+  height: 10%;
+}
