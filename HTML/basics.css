@@ -146,3 +146,79 @@ Align Items - row direction */
   color: red;
   font-size: 30px;
 }
+
+.width{
+  width: 300px;
+  margin-left: 250px;
+}
+
+.container-div{
+  width: 400px;
+  height: 60px;
+  border: 2px solid black;
+}
+
+.inner-div{
+  width: 200px;
+  height: 30px;
+  border: 2px solid red;
+}
+
+.flex-container{
+  height: 450px;
+  background-color: #E91E63;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-item{
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: white;
+  border: 2px solid;
+}
+
+@media only screen and (max-width : 480px){
+  .body-background{
+    background-color: red;
+    color: white;
+  }
+
+  .flex-container{
+    flex-direction: column;
+  }
+
+}
+
+@media only screen and (min-width : 481px) and (max-width : 768px){
+  .body-background{
+    background-color: black;
+    color: yellow;
+  }
+
+  .flex-container{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width : 769px) and (max-width : 1024px){
+  .body-background{
+    background-color: purple;
+    color: white;
+  }
+
+  .flex-container{
+    flex-direction: row;
+  }
+}
+
+/* 
+
+For Mobile Devices – 320px — 480px.
+iPads and Tablets – 481px — 768px.
+Laptops and small screen – 769px — 1024px.
+Large screens and Desktops – 1025px — 1200px.
+TV and Extra Large Screens – 1201px and more.
+
+*/
