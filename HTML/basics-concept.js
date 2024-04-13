@@ -156,3 +156,136 @@ Converting String value -> Number value
 syntax:
 parseInt(value);
 */
+/*
+Operators
+1. Arithmetic Operator +, -, *, /, %, ++, --
+2. Assignement Operator =
+3. Comparaison Operator < (less than), <= , > (greater than), >=, ==, !=, ===, !==
+4. Logical Operator && (AND), || (OR), ! (NOT)
+
+&& AND
+true && true = true 
+false && true = false 
+true && false = false 
+false && false = false
+
+|| OR 
+true || true = true 
+true || false = true 
+false || true = true
+false || false = false 
+
+! NOT
+!true = false 
+!false = true 
+*/
+
+/*
+IF ELSE Condition 
+Syntax:
+
+if(condition){
+  -- coding 1
+}
+else{
+  -- coding 2
+}
+
+condition - logiacally should return boolean 
+*/
+
+/*/
+Problem - To find whether a person is eligible for Vote ?
+Pseudocode:
+1. Give Number as a Input 
+2. Evaluate the number = Number greater than or equal to 18
+3. True = Eligible to vote 
+4. False = Not Eligible to vote
+*/
+
+function checkVotingEligiblity(){
+  var age = prompt("Enter your age in number");
+  if(age >= 18){
+    alert("The user is Eligible to Vote");
+  }
+  else{
+    alert("The user is NOT Eligible to Vote");
+  }
+}
+
+/*
+Multiple IF ELSE Condition 
+Syntax:
+
+if(condition){
+  -- condition 1
+}
+else if(condition){
+  -- condition 2
+}
+else if(condition){
+  -- condition 3
+}
+.
+.
+else{
+  -- condition N
+}
+*/
+
+/*
+Problem: To find Ticket Price based on user age
+1) If age is less than 10 - Ticket fair will be 50%
+2) If age is greater than or equal to 10 and less then 60 - Ticket fair will be 100%
+3) If age is greater than or equal to 60 - Ticker fair will be 75%
+
+Pseudocode:
+1. Give Number as a Input 
+2. Number < 10 = Ticket fair will be 50%
+3. Number >= 10 && Number < 60 = Ticket fair will be 100%
+4. Number >= 60 = Ticker fair will be 75%
+*/
+
+function checkTicketPrice(){
+  var age = prompt("Enter your age in number");
+  if(age < 10){
+    alert("Ticket fair will be 50%");
+  }
+  else if(age >= 10 && age < 60){
+    alert("Ticket fair will be 100%");
+  }
+  else{
+    alert("Ticker fair will be 75%");
+  }
+}
+
+/*Loop - FOR 
+Syntax:
+
+for(initialization; condition; increment/decrement){
+  -- repeated logic
+}
+
+initialization - Loop starting point 
+condition - Loop ending point based on false 
+increment/decrement - Loop movement control 
+
+for(var i = 1; i <= 10; i++){
+  console.log("Count " + i);
+}*/
+
+/*
+Problem - To find all Even numbers for the give number of limit 
+1. Give number as a Input 
+2. Logic = Number % 2 == 0 -- Even number else -- Not Even number 
+*/
+
+function findEvenNumbers(){
+  var lastNumber = prompt("Enter the last number");
+  for(var i = 1; i <= lastNumber; i++){
+    console.log(i);
+    if(i % 2 == 0){
+      console.log(i, "is a even number");
+    }
+  }
+}
