@@ -58,10 +58,10 @@ value -- any kind of data type
 */
 
 var studentDetials = {
-  firstName : "mr.abc",
-  lastName : "xyz",
-  age : 25,
-  rollNumber : "47865ASE55"
+  firstName: "mr.abc",
+  lastName: "xyz",
+  age: 25,
+  rollNumber: "47865ASE55"
 };
 
 console.log(studentDetials);
@@ -76,22 +76,22 @@ var nameList = ["abc", "cde", "ghg"];
 
 var studentDetialList = [
   {
-    firstName : "mr.abc",
-    lastName : "xyz",
-    age : 25,
-    rollNumber : "47865ASE55"
+    firstName: "mr.karthick",
+    lastName: "xyz",
+    age: 28,
+    rollNumber: "47865ASE55"
   },
   {
-    firstName : "mr.abc",
-    lastName : "xyz",
-    age : 25,
-    rollNumber : "47865ASE55"
+    firstName: "mr.john",
+    lastName: "xyz",
+    age: 20,
+    rollNumber: "47865ASE55"
   },
   {
-    firstName : "mr.abc",
-    lastName : "xyz",
-    age : 25,
-    rollNumber : "47865ASE55"
+    firstName: "mr.yuvi",
+    lastName: "xyz",
+    age: 18,
+    rollNumber: "47865ASE55"
   }
 ];
 
@@ -106,6 +106,16 @@ function functionName(){
   --- codings ---
 }
 
+var variable_name = function(){
+  --- codings ---
+}
+
+Anonymous Function / Callback Function 
+
+function(){
+  --- codings ---
+}
+
 syntax: Function Invocation / Execution
 
 functionName();
@@ -116,7 +126,7 @@ function -- Javascript in-built keyword
 functionName -- Valid text it should be a meaningful name (No space, A-Z, a-z, 0-9, _, $)
 */
 
-function printWelcomeMessage(){
+function printWelcomeMessage() {
   var message = "Hello there! Good Day";
   console.log(message);
   alert(message);
@@ -135,14 +145,14 @@ syntax:
 var variable_name = prompt("Lable message");
 */
 
-function displayUserMessage(){
+function displayUserMessage() {
   var userMessage = prompt("Please Enter any Message");
   console.log(userMessage);
   alert(userMessage);
 }
 
 //Addition of Two Numbers
-function addition(){
+function addition() {
   var number1 = prompt("Enter your First Number");
   var number2 = prompt("Enter your Second Number");
 
@@ -203,12 +213,12 @@ Pseudocode:
 4. False = Not Eligible to vote
 */
 
-function checkVotingEligiblity(){
+function checkVotingEligiblity() {
   var age = prompt("Enter your age in number");
-  if(age >= 18){
+  if (age >= 18) {
     alert("The user is Eligible to Vote");
   }
-  else{
+  else {
     alert("The user is NOT Eligible to Vote");
   }
 }
@@ -246,15 +256,15 @@ Pseudocode:
 4. Number >= 60 = Ticker fair will be 75%
 */
 
-function checkTicketPrice(){
+function checkTicketPrice() {
   var age = prompt("Enter your age in number");
-  if(age < 10){
+  if (age < 10) {
     alert("Ticket fair will be 50%");
   }
-  else if(age >= 10 && age < 60){
+  else if (age >= 10 && age < 60) {
     alert("Ticket fair will be 100%");
   }
-  else{
+  else {
     alert("Ticker fair will be 75%");
   }
 }
@@ -280,12 +290,127 @@ Problem - To find all Even numbers for the give number of limit
 2. Logic = Number % 2 == 0 -- Even number else -- Not Even number 
 */
 
-function findEvenNumbers(){
+function findEvenNumbers() {
   var lastNumber = prompt("Enter the last number");
-  for(var i = 1; i <= lastNumber; i++){
+  for (var i = 1; i <= lastNumber; i++) {
     console.log(i);
-    if(i % 2 == 0){
+    if (i % 2 == 0) {
       console.log(i, "is a even number");
     }
   }
+}
+
+/*
+forEach - Loop only to Iterate array 
+syntax:
+
+array_variable_name.forEach(function(value, index){
+  --- coding logic --- 
+})
+
+callback function = function(){ }
+value, index = Argument 
+*/
+
+studentDetialList.forEach(function (value, index) {
+  console.log("The studen name is " + value.firstName);
+});
+
+/* 
+Read value from an Object 
+object_variable_name.key 
+*/
+
+var car = {
+  price: 1000000,
+  brand: "Hyndai"
+}
+
+console.log("My car brand is " + car.brand);
+
+/*
+map - Loop only to Iterate array and it will return a new Array
+syntax:
+array_variable_name.map(function(value, index){
+  return value;
+});
+*/
+
+var mapResult = studentDetialList.map(function (value, index) {
+  var data = {
+    name: value.firstName,
+    roll: value.rollNumber
+  }
+  return data;
+});
+
+console.log(mapResult);
+/*
+filter - Loop only to Iterate array and it will return a new filtered value Array
+
+array_variable_name.filter(function(value, index){
+  return condition; 
+})
+*/
+
+var filterResult = studentDetialList.filter(function (value, index) {
+  return value.age >= 20
+});
+
+console.log(filterResult);
+
+/*
+Switch Case - Flow Control 
+syntax:
+
+switch(expression){
+  case value:
+    -- coding --
+    break;
+  case value:
+    -- coding --
+    break;
+  .
+  .
+  default:
+    -- coding --
+}
+
+expression - Actual value
+value - To match the given expression  
+*/
+
+/*
+Problem - To perfom basic Arithmetic Operation 
+Input : 2 Number value, 1 Operator value 
+*/
+
+// Copy and Paste - Shift + Alt + down arrow
+function calculator() {
+  var number1 = prompt("Enter a number 1 value");
+  var number2 = prompt("Enter a number 2 value");
+  var operator = prompt("Enter a opertor symbol");
+  var result;
+
+  switch (operator) {
+    case "+":
+      result = parseInt(number1) + parseInt(number2);
+      alert(result);
+      break;
+    case "-":
+      result = number1 - number2;
+      alert(result);
+      break;
+    case "*":
+      result = number1 * number2;
+      alert(result);
+      break;
+    case "/":
+      result = number1 / number2;
+      alert(result);
+      break;
+    default:
+      alert("Invalid Operator use only +,-,*,/");
+  }
+
 }
