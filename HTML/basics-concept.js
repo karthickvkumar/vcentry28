@@ -387,30 +387,185 @@ Input : 2 Number value, 1 Operator value
 
 // Copy and Paste - Shift + Alt + down arrow
 function calculator() {
-  var number1 = prompt("Enter a number 1 value");
-  var number2 = prompt("Enter a number 2 value");
-  var operator = prompt("Enter a opertor symbol");
-  var result;
+  try{
+    //debugger;
+    var number1 = prompt("Enter a number 1 value");
+    var number2 = prompt("Enter a number 2 value");
+    var operator = prompt("Enter a opertor symbol");
+    var result;
 
-  switch (operator) {
-    case "+":
-      result = parseInt(number1) + parseInt(number2);
-      alert(result);
-      break;
-    case "-":
-      result = number1 - number2;
-      alert(result);
-      break;
-    case "*":
-      result = number1 * number2;
-      alert(result);
-      break;
-    case "/":
-      result = number1 / number2;
-      alert(result);
-      break;
-    default:
-      alert("Invalid Operator use only +,-,*,/");
+    switch (operator) {
+      case "+":
+        result = parseInt(number) + parseInt(number2);
+        alert(result);
+        break;
+      case "-":
+        result = number1 - number2;
+        alert(result);
+        break;
+      case "*":
+        result = number * number2;
+        alert(result);
+        break;
+      case "/":
+        result = number / number2;
+        alert(result);
+        break;
+      default:
+        alert("Invalid Operator use only +,-,*,/");
+    }
   }
+  catch(exception){
+    console.log(exception);
+    console.info(exception);
+    console.warn(exception);
+    console.error(exception); // Output of developer
+
+    alert("Something went wrong, pls contact admin of this page"); // Output for User
+  }
+}
+
+/*
+Error Handling 
+
+1. Syntax Error - Incorrect coding syntax (red output in console window - Uncaught syntax error)
+2. Reference Error - Using undeclared variable name or function name (red output in console window)
+3. Logical Error - Invalid or unexpected output (No red color output - resolve debugger / debugging)
+*/
+
+/*
+To handle error in code 
+syntax:
+try{
+  -- entire code block
+}
+catch(exception){
 
 }
+*/
+
+/*
+Scope - It is used to set accessiblity of a Varaible 
+1. Local Scope - Creating variable inside a Function definition 
+                 Variable accessiblity rule will only available within the function
+
+2. Global Scope - Creating variable outside a Function definition
+                  Variable accessiblity rule will available within the ANY function
+
+*/
+var commonUserName = "SID";
+
+function displayName(){
+  var username = "karthickvkumar";
+  console.log(username);
+  console.log(commonUserName);
+}
+
+function displayUserName(){
+  //console.log(username);
+  console.log(commonUserName);
+}
+
+/*
+Timers 
+1. Set Timeout 
+2. Set Inerval 
+*/
+
+/*
+SetTimeout - It will make code to run after the given time duration
+Syntax:
+
+setTimeout(function(){
+  -- code that run after sometime 
+}, timeInMillisecond);
+
+1000 millisecond - 1 Second 
+*/
+
+function timeDelayOutput(){
+  setTimeout(function(){
+    var message = "You won the price!";
+    console.log(message);
+    alert(message);
+  }, 5000);
+}
+
+/*
+SetInterval - It will run the code in repeat mode for given time duration
+Syntax:
+setInterval(function(){
+  -- code to run repeat mode 
+}, timeInMillisecond);
+*/
+var timeId;
+
+function repatModeOutput(){
+  timeId = setInterval(function(){
+    var message = "You won the price!";
+    console.log(message);
+    alert(message);
+  }, 3000); 
+}
+
+/*
+To set interval repeat mode 
+syntax:
+clearInterval(timerId);
+*/
+
+function stopTimeInterval(){
+  clearInterval(timeId);
+}
+
+/*
+Browser Storage 
+1. Local Storage - Permenamt storage 
+2. Session Storage - Temporary storage 
+
+To store new value into Local Storgae 
+syntax: 
+localStorage.setItem("key", value);
+key - Name to indentify
+value - Primitive Type value 
+
+To read stored value from local Storgae
+syntax:
+localStorage.getItem("key");
+
+To delete particular value from local storage
+syntax:
+localStorage.removeItem("key");
+
+To all value from local Storage
+syntax:
+localStorage.clear();
+
+*/
+
+/*
+To store Object / Array into local Storage
+var result = JSON.stringify(value); ---> string formated object / array 
+
+JSON.parse(stringValue) --> Convert string formated object/ array to original value
+*/
+
+/*
+To store new value into Session Storage
+syntax: 
+sessionStorage.setItem("key", value);
+key - Name to indentify
+value - Primitive Type value 
+
+To read stored value from local Storage
+syntax:
+sessionStorage.getItem("key");
+
+To delete particular value from local storage
+syntax:
+sessionStorage.removeItem("key");
+
+To all value from local Storage
+syntax:
+sessionStorage.clear();
+*/
