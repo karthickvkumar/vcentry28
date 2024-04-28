@@ -3,6 +3,7 @@ import React from "react";
 const LoginPage = () => {
   return(
     <div>
+      <h2 id="loginHeading">Login Form</h2>
       <label>Enter your Username</label>
       <input type="text" placeholder="Please enter username" />
       <br></br>
