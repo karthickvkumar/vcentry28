@@ -2,6 +2,8 @@ import React from "react";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AboutPage from "./pages/about";
+import PageNotFound from "./pages/page-not-found";
 
 import "./css/style.css";
 
@@ -9,8 +11,11 @@ const App = () => {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="home" element={<HomePage></HomePage>}></Route>
+        <Route path="" element={<HomePage></HomePage>}></Route>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
+        <Route path="about" element={<AboutPage></AboutPage>}></Route>
+        
+        <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
     </BrowserRouter>
   )
