@@ -9,7 +9,7 @@ const PrintOutputPage = () => {
     firstName : "karthick",
     lastName : "kumar"
   }
-  // Object - {variableName.key}
+  // Object - {objectVariableName.key}
 
   var userDetailList = [ 
     {
