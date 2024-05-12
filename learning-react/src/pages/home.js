@@ -13,7 +13,7 @@ const HomePage = () => {
       <br></br>
       <NavLink to="/about">Check About page</NavLink>
       <br></br>
-      <NavLink to="/nested">Go to Nested Routing Page</NavLink>
+      <NavLink to="/nested/content-1">Go to Nested Routing Page</NavLink>
       <br></br>
     </div>
   )

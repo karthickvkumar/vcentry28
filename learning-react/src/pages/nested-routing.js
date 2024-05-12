@@ -7,11 +7,12 @@ const NestedRoutingPage = () => {
       <div className="header"></div>
       <div className="body">
         <div className="sidebar">
-          <NavLink to="/nested/content-1" className="link-button">Content 1</NavLink>
+          
+          <NavLink to="/nested/content-1" className={({isActive}) => isActive ? "link-button selection" : "link-button"}>Content 1</NavLink>
           <br/>
-          <NavLink to="/nested/content-2" className="link-button">Content 2</NavLink>
+          <NavLink to="/nested/content-2" className={({isActive}) => isActive ? "link-button selection" : "link-button"}>Content 2</NavLink>
           <br/>
-          <NavLink to="/nested/content-3" className="link-button">Content 3</NavLink>
+          <NavLink to="/nested/content-3" className={({isActive}) => isActive ? "link-button selection" : "link-button"}>Content 3</NavLink>
         </div>
         <div className="section">
           <div className="content">
