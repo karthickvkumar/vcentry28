@@ -77,6 +77,9 @@ const PrintOutputPage = () => {
     // console.log(event.target.value);
     userMessage = event.target.value;
     console.log(userMessage);
+
+    //dynamic variable
+    updateContentMessage(event.target.value);
   }
 
   
