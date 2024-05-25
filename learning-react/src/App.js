@@ -9,6 +9,7 @@ import NestedContent1 from "./pages/nested-content-1";
 import NestedContent2 from "./pages/nested-content-2";
 import NestedContent3 from "./pages/nested-content-3";
 import PrintOutputPage from "./pages/print-output";
+import CreateAccountPage from "./pages/create-account";
 
 import "./css/style.css";
 
@@ -27,6 +28,7 @@ const App = () => {
         </Route>
 
         <Route path="print" element={<PrintOutputPage></PrintOutputPage>}></Route>
+        <Route path="signup" element={<CreateAccountPage></CreateAccountPage>}></Route>
 
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
