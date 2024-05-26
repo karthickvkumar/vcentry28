@@ -11,6 +11,7 @@ import NestedContent3 from "./pages/nested-content-3";
 import PrintOutputPage from "./pages/print-output";
 import CreateAccountPage from "./pages/create-account";
 import ProfilePage from "./pages/profile";
+import ConditionalRenderingPage from "./pages/conditional-rendering";
 
 import "./css/style.css";
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="print" element={<PrintOutputPage></PrintOutputPage>}></Route>
         <Route path="signup" element={<CreateAccountPage></CreateAccountPage>}></Route>
         <Route path="profile" element={<ProfilePage></ProfilePage>}></Route>
+        <Route path="hide" element={<ConditionalRenderingPage></ConditionalRenderingPage>}></Route>
 
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
