@@ -13,7 +13,13 @@ app.use(cors({
 app.use(express.json());
 
 //////
+// Method - GET
+// API URL - http://localhost:5000/api/welcome
+app.get("/api/welcome", (request, response) => {
 
+  response.status(200).send("Hey there! this is your first API");
+
+});
 
 //////
 

@@ -63,10 +63,23 @@ const ApiPage = () => {
       })
   }
 
+  const getWelcomeAPIMethod = () => {
+    const url = "http://localhost:5000/api/welcome";
+
+    axios.get(url)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   return (
     <div>
       <h2>GET Method</h2>
       <button onClick={() => getAPIMethod()}>Get API</button>
+      <button onClick={() => getWelcomeAPIMethod()}>Get Welcome API</button>
       <table id="customers">
         <thead>
           <tr>
