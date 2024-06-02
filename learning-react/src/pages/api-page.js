@@ -51,9 +51,10 @@ const ApiPage = () => {
   const createUserAccount = () => {
     console.log(userForm);
 
-    const url = "https://reqres.in/api/users";
+    const newURL = "http://localhost:5000/api/create/user";
+    // const url = "https://reqres.in/api/users";
    
-    axios.post(url, userForm)
+    axios.post(newURL, userForm)
       .then( (response) => {
         console.log(response.data);
       })
