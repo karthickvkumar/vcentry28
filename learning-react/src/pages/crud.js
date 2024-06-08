@@ -4,6 +4,11 @@ import axios from 'axios';
 const CRUDOperationPage = () => {
 
   const [studentList, updateStudentList] = useState([]);
+  const [studentForm, submitStudentForm] = useState({
+    name : "",
+    age : "",
+    location: ""
+  })
 
   const loadStudentDetails = () => {
     const url = "http://localhost:5000/api/list/students";
@@ -27,8 +32,31 @@ const CRUDOperationPage = () => {
     )
   })
 
+  const handleInputField = (event) => {
+    submitStudentForm({...studentForm, [event.target.name] : event.target.value });
+  }
+
+  const uploadStudnetDetails = () => {
+    console.log(studentForm);
+
+    const url = "http://localhost:5000/api/create/student";
+    axios.post(url, studentForm)
+      .then((response) => {
+        alert(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   return (
     <div>
+      <h2>Create Student Information</h2>
+      <input type='text' name="name" placeholder='Enter your Name' onChange={handleInputField} />
+      <input type='text' name="age" placeholder='Enter your Age' onChange={handleInputField}/>
+      <input type='text' name="location" placeholder='Enter your Location' onChange={handleInputField}/>
+      <button onClick={() => uploadStudnetDetails()}>Submit</button>
+
       <h2>Student's Details here,</h2>
       <button onClick={() => loadStudentDetails()}>Load Student's details</button>
       <div className='student-container'>

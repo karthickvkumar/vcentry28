@@ -28,29 +28,45 @@ app.post("/api/create/user", (request, response) => {
 })
 
 //CRUD - Create, Read, Upadte, Delete 
+let studentList = [
+  {
+    name : "karthick",
+    age: 28,
+    location: "chennai"
+  },
+  {
+    name : "kumar",
+    age: 26,
+    location: "madurai"
+  },
+  {
+    name : "yuvaraj",
+    age: 29,
+    location: "erode"
+  }
+];
 // Method - GET
 // URL - http://localhost:5000/api/list/students
 app.get("/api/list/students", (request, response) => {
-  let studentList = [
-    {
-      name : "karthick",
-      age: 28,
-      location: "chennai"
-    },
-    {
-      name : "kumar",
-      age: 26,
-      location: "madurai"
-    },
-    {
-      name : "yuvaraj",
-      age: 29,
-      location: "erode"
-    }
-  ];
-
   response.status(200).send(studentList);
-})
+});
+
+// Method - POST
+// URL - http://localhost:5000/api/create/student
+// Payload
+// {
+//   name : "",
+//   age: 0,
+//   location: ""
+// }
+
+app.post("/api/create/student", (request, response) => {
+  let incomingValue = request.body;
+  studentList.push(incomingValue);
+  
+
+  response.status(200).send("Student Record has been Created");
+});
 
 //////
 
