@@ -13,6 +13,7 @@ import CreateAccountPage from "./pages/create-account";
 import ProfilePage from "./pages/profile";
 import ConditionalRenderingPage from "./pages/conditional-rendering";
 import ApiPage from "./pages/api-page";
+import CRUDOperationPage from "./pages/crud";
 
 import "./css/style.css";
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="profile" element={<ProfilePage></ProfilePage>}></Route>
         <Route path="hide" element={<ConditionalRenderingPage></ConditionalRenderingPage>}></Route>
         <Route path="api" element={<ApiPage></ApiPage>}></Route>
+        <Route path="crud" element={<CRUDOperationPage></CRUDOperationPage>}></Route>
 
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>

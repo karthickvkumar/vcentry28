@@ -106,3 +106,21 @@
   background-color: #04AA6D;
   color: white;
 }
+
+.student-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.student-list{
+  width: 150px;
+  height: 100px;
+  border: 2px solid red;
+}
+
+.student-list h3{
+  text-align: center;
+  margin: 0px;
+}
