@@ -28,9 +28,23 @@ const CRUDOperationPage = () => {
         <h3>{value.name}</h3>
         <h3 className='hello'>{value.age}</h3>
         <h3>{value.location}</h3>
+        <button onClick={() => deleteStudent(value.id)}>Delete</button>
       </div>
     )
-  })
+  });
+
+  const deleteStudent = (id) => {
+    const url = "http://localhost:5000/api/delete/student/" + id;
+
+    axios.delete(url)
+      .then((response) => {
+        alert(response.data);
+        loadStudentDetails();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
 
   const handleInputField = (event) => {
     submitStudentForm({...studentForm, [event.target.name] : event.target.value });
@@ -43,6 +57,7 @@ const CRUDOperationPage = () => {
     axios.post(url, studentForm)
       .then((response) => {
         alert(response.data);
+        loadStudentDetails();
       })
       .catch((error) => {
         console.log(error);

@@ -32,17 +32,20 @@ let studentList = [
   {
     name : "karthick",
     age: 28,
-    location: "chennai"
+    location: "chennai",
+    id: 1
   },
   {
     name : "kumar",
     age: 26,
-    location: "madurai"
+    location: "madurai",
+    id: 2
   },
   {
     name : "yuvaraj",
     age: 29,
-    location: "erode"
+    location: "erode",
+    id: 3
   }
 ];
 // Method - GET
@@ -62,11 +65,24 @@ app.get("/api/list/students", (request, response) => {
 
 app.post("/api/create/student", (request, response) => {
   let incomingValue = request.body;
+  incomingValue.id = studentList.length + 1;
+
   studentList.push(incomingValue);
   
-
   response.status(200).send("Student Record has been Created");
 });
+
+// Method - DELETE
+// URL - http://localhost:5000/api/delete/student/2
+app.delete("/api/delete/student/:id", (request, response) => {
+  const id = request.params.id;
+  const index = studentList.findIndex((value) => {
+    return value.id == id;
+  })
+  studentList.splice(index, 1);
+
+  response.status(200).send("Student Record has been Deleted");
+})
 
 //////
 
