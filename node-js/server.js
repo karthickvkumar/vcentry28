@@ -24,8 +24,32 @@ app.get("/api/welcome", (request, response) => {
 // API URL - http://localhost:5000/api/create/user
 app.post("/api/create/user", (request, response) => {
   console.log(request.body);
-
   response.status(200).send("Success: Valid data");
+})
+
+//CRUD - Create, Read, Upadte, Delete 
+// Method - GET
+// URL - http://localhost:5000/api/list/students
+app.get("/api/list/students", (request, response) => {
+  let studentList = [
+    {
+      name : "karthick",
+      age: 28,
+      location: "chennai"
+    },
+    {
+      name : "kumar",
+      age: 26,
+      location: "madurai"
+    },
+    {
+      name : "yuvaraj",
+      age: 29,
+      location: "erode"
+    }
+  ];
+
+  response.status(200).send(studentList);
 })
 
 //////
