@@ -80,11 +80,51 @@ app.delete("/api/delete/student/:id", (request, response) => {
     return value.id == id;
   })
   studentList.splice(index, 1);
-
   response.status(200).send("Student Record has been Deleted");
 })
 
 //////
+
+let employeeList = [
+  {
+    "employeeName" : "Suresh",
+    "designation" : "UI developer",
+    "inTime" : "09:00 AM",
+    "outTime" : "06:00 PM",
+    "salary" : "25000"
+  },
+  {
+    "employeeName" : "Kumar",
+    "designation" : "Node JS developer",
+    "inTime" : "10:00 AM",
+    "outTime" : "07:00 PM",
+    "salary" : "30000"
+  }
+];
+
+// URL - http://localhost:5000/api/employee/list 
+app.get("/api/employee/list", (request, response) => {
+  response.status(200).send(employeeList);
+})
+
+// Payload
+// {
+//   "employeeName" : "",
+//   "designation" : "",
+//   "inTime" : "",
+//   "outTime" : "",
+//   "salary" : ""
+// }
+// URL - http://localhost:5000/api/employee/create
+
+app.post("/api/employee/create", (request, response) => {
+  var incomingValue = request.body;
+  employeeList.push(incomingValue);
+
+  response.status(200).send("Employee record had been created");
+})
+
+
 
 const portNumber = 5000;
 server.listen(portNumber, () => {

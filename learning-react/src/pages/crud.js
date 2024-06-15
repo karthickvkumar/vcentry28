@@ -8,30 +8,69 @@ const CRUDOperationPage = () => {
     name : "",
     age : "",
     location: ""
-  })
+  });
+  const [selectedStudent, updateSelectedStudent] = useState(undefined);
 
   const loadStudentDetails = () => {
     const url = "http://localhost:5000/api/list/students";
 
     axios.get(url)
       .then((response) => {
+        console.log(response);
         updateStudentList(response.data);
       })
       .catch((error) => {
         console.log(error);
       })
   }
+  
+  const handleEditInput = (id, event) => {
+    // console.log(id, event);
+    const index = id - 1;
+    studentList[index][event.target.name] = event.target.value;
+
+    updateStudentList([...studentList]);
+
+  }
 
   let record = studentList.map((value, index) => {
     return(
       <div key={index} className='student-list'>
-        <h3>{value.name}</h3>
-        <h3 className='hello'>{value.age}</h3>
-        <h3>{value.location}</h3>
+        {
+          selectedStudent == value.id ? 
+            <div>
+              <input type='text'  name="name"  placeholder='Student Name...' value={value.name} onChange={handleEditInput.bind(this, value.id)} />
+              <input type='text' name="age"  placeholder='Student Age...' value={value.age} onChange={handleEditInput.bind(this, value.id)}/>
+              <input type='text' name="location" placeholder='Student Location...' value={value.location} onChange={handleEditInput.bind(this, value.id)}/>
+            </div>
+            :
+            <div>
+              <h3>{value.name}</h3>
+              <h3 className='hello'>{value.age}</h3>
+              <h3>{value.location}</h3>
+            </div>
+            
+        }
+        
         <button onClick={() => deleteStudent(value.id)}>Delete</button>
+        {
+          selectedStudent == value.id ? 
+            <button onClick={() => saveStudent()}>Save</button>
+            :
+            <button onClick={() => editStudent(value.id)}>Edit</button>
+        }
       </div>
     )
   });
+
+  const editStudent = (id) => {
+    updateSelectedStudent(id);
+  }
+
+
+  const saveStudent = (id) => {
+    updateSelectedStudent(undefined);
+  }
 
   const deleteStudent = (id) => {
     const url = "http://localhost:5000/api/delete/student/" + id;
