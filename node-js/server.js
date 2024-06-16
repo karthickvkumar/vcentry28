@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import http from "http";
+import http, { get } from "http";
 import mysql from "mysql";
 
 const app = express();
@@ -31,6 +31,23 @@ connection.connect((error) => {
 })
 
 //////
+// Method - GET 
+// URL - http://localhost:5000/api/list/users
+
+app.get("/api/list/users", (request, response) => {
+  const sql_query = "SELECT * FROM karthick_table;"
+
+  connection.query(sql_query, (error, result) => {
+    if(error){
+      response.status(500).send(error);
+    }
+    else{
+      response.status(200).send(result);
+    }
+  })
+})
+
+
 // Method - GET
 // API URL - http://localhost:5000/api/welcome
 app.get("/api/welcome", (request, response) => {
