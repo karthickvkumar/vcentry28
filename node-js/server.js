@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import http from "http";
+import mysql from "mysql";
 
 const app = express();
 const server = http.createServer(app);
@@ -11,6 +12,23 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+const connection = mysql.createConnection({
+  host: "db4free.net",
+  user: "vcentry",
+  password: "test@123",
+  database: "travelix",
+  port: 3306
+});
+
+connection.connect((error) => {
+  if(error){
+    throw error;
+  }
+  else{
+    console.log("MYSQL Server connected")
+  }
+})
 
 //////
 // Method - GET
@@ -156,3 +174,18 @@ const portNumber = 5000;
 server.listen(portNumber, () => {
   console.log("Server is running on port 5000");
 })
+
+
+// ***************CREATE TABLE*********************** //
+/*
+USE travelix; 
+CREATE TABLE karthick_table (name varchar(255), age int(3), location varchar(255), id int NOT NULL AUTO_INCREMENT, PRIMARY KEY(id));
+
+
+USE travelix; 
+INSERT INTO karthick_table (name, age, location) VALUES ('Karthick', 29, 'Chennai');
+
+USE travelix;
+SELECT * FROM karthick_table;
+
+*/
