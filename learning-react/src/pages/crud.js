@@ -55,7 +55,7 @@ const CRUDOperationPage = () => {
         <button onClick={() => deleteStudent(value.id)}>Delete</button>
         {
           selectedStudent == value.id ? 
-            <button onClick={() => saveStudent()}>Save</button>
+            <button onClick={() => saveStudent(value)}>Save</button>
             :
             <button onClick={() => editStudent(value.id)}>Edit</button>
         }
@@ -68,8 +68,17 @@ const CRUDOperationPage = () => {
   }
 
 
-  const saveStudent = (id) => {
+  const saveStudent = (value) => {
     updateSelectedStudent(undefined);
+
+    const url = "http://localhost:5000/api/update/student/" + value.id;
+    axios.put(url, value)
+      .then((response) => {
+        alert(response.data);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   const deleteStudent = (id) => {

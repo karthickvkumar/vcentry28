@@ -72,6 +72,20 @@ app.post("/api/create/student", (request, response) => {
   response.status(200).send("Student Record has been Created");
 });
 
+// Method - PUT
+// URL - http://localhost:5000/api/update/student/1
+
+app.put("/api/update/student/:id", (request, response) => {
+  const id = request.params.id;
+  const incomingValue = request.body;
+
+  const index = id - 1;
+  studentList[index] = incomingValue;
+
+  response.status(200).send("Student Record has been Updated");
+
+})
+
 // Method - DELETE
 // URL - http://localhost:5000/api/delete/student/2
 app.delete("/api/delete/student/:id", (request, response) => {
