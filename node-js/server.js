@@ -79,6 +79,18 @@ app.put("/api/update/student/:id", (request, response) => {
   const id = request.params.id;
   const incomingValue = request.body;
 
+  if(incomingValue.name == ""){
+    response.status(401).send("User Name is Invalid")
+  }
+
+  if(incomingValue.age == ""){
+    response.status(401).send("User Age is Invalid")
+  }
+
+  if(incomingValue.location == ""){
+    response.status(401).send("User Location is Invalid")
+  }
+
   const index = id - 1;
   studentList[index] = incomingValue;
 

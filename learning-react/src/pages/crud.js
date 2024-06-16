@@ -69,15 +69,16 @@ const CRUDOperationPage = () => {
 
 
   const saveStudent = (value) => {
-    updateSelectedStudent(undefined);
-
+  
     const url = "http://localhost:5000/api/update/student/" + value.id;
     axios.put(url, value)
       .then((response) => {
         alert(response.data);
+        updateSelectedStudent(undefined);
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
+        alert(error.response.data);
       })
   }
 
@@ -106,6 +107,11 @@ const CRUDOperationPage = () => {
       .then((response) => {
         alert(response.data);
         loadStudentDetails();
+        submitStudentForm({
+          name : "",
+          age : "",
+          location: ""
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -115,15 +121,19 @@ const CRUDOperationPage = () => {
   return (
     <div>
       <h2>Create Student Information</h2>
-      <input type='text' name="name" placeholder='Enter your Name' onChange={handleInputField} />
-      <input type='text' name="age" placeholder='Enter your Age' onChange={handleInputField}/>
-      <input type='text' name="location" placeholder='Enter your Location' onChange={handleInputField}/>
+      <input type='text' name="name" value={studentForm.name} placeholder='Enter your Name' onChange={handleInputField} />
+      <input type='text' name="age" value={studentForm.age} placeholder='Enter your Age' onChange={handleInputField}/>
+      <input type='text' name="location" value={studentForm.location} placeholder='Enter your Location' onChange={handleInputField}/>
       <button onClick={() => uploadStudnetDetails()}>Submit</button>
 
       <h2>Student's Details here,</h2>
       <button onClick={() => loadStudentDetails()}>Load Student's details</button>
       <div className='student-container'>
-        {record}
+        {record.length == 0 ? 
+          <h2>No Student Record Found</h2>  
+          :
+          record
+        }
       </div>
     </div>
   );
