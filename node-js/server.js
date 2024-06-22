@@ -56,6 +56,30 @@ app.get("/api/list/contact", (request, response) => {
   })
 })
 
+// Method - POST 
+// URL - http://localhost:5000/api/create/contact
+// Playload
+// {
+//   name : "",
+//   email : "",
+//   message : ""
+// }
+
+app.post("/api/create/contact", (request, response) => {
+  const incomingValue = request.body;
+  const sql_query = `INSERT INTO contactdetails (name, email, message) VALUES ('${incomingValue.name}', '${incomingValue.email}', '${incomingValue.message}')`;
+
+  connection.query(sql_query, (error, result) => {
+    if(error){
+      response.status(500).send(error);
+    }
+    else{
+      response.status(200).send("Contact details Created Successfully");
+    }
+  })
+
+})
+
 
 // Method - GET 
 // URL - http://localhost:5000/api/list/users
