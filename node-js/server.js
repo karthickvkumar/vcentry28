@@ -14,12 +14,20 @@ app.use(cors({
 app.use(express.json());
 
 const connection = mysql.createConnection({
-  host: "db4free.net",
-  user: "vcentry",
-  password: "test@123",
-  database: "travelix",
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "fullstack",
   port: 3306
 });
+
+// const connection = mysql.createConnection({
+//   host: "db4free.net",
+//   user: "vcentry",
+//   password: "test@123",
+//   database: "travelix",
+//   port: 3306
+// });
 
 connection.connect((error) => {
   if(error){
@@ -31,6 +39,24 @@ connection.connect((error) => {
 })
 
 //////
+
+// Method - GET
+// URL - http://localhost:5000/api/list/contact
+
+app.get("/api/list/contact", (request, response) => {
+  const sql_query = "SELECT * FROM contactdetails";
+
+  connection.query(sql_query, (error, result) => {
+    if(error){
+      response.status(500).send(error);
+    }
+    else{
+      response.status(200).send(result);
+    }
+  })
+})
+
+
 // Method - GET 
 // URL - http://localhost:5000/api/list/users
 
