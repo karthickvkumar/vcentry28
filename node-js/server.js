@@ -77,9 +77,49 @@ app.post("/api/create/contact", (request, response) => {
       response.status(200).send("Contact details Created Successfully");
     }
   })
-
 })
 
+// Method - PUT 
+// URL - http://localhost:5000/api/update/contact/1
+// Payload
+// {
+//   name : "",
+//   email : "",
+//   message : ""
+// }
+
+app.put("/api/update/contact/:id", (request, response) => {
+  const id = request.params.id;
+  const incomingValue = request.body;
+
+  const sql_query = `UPDATE contactdetails SET name='${incomingValue.name}', email='${incomingValue.email}', message='${incomingValue.message}' WHERE id=${id}`;
+
+  connection.query(sql_query, (error, result) => {
+    if(error){
+      response.status(500).send(error);
+    }
+    else{
+      response.status(200).send("Contact details has be Updated");
+    }
+  })
+})
+
+// Method - DELETE
+// URL - http://localhost:5000/api/delete/contact/1
+
+app.delete("/api/delete/contact/:id", (request, response) => {
+  const id = request.params.id;
+  const sql_query = `DELETE FROM contactdetails WHERE id=${id}`;
+
+  connection.query(sql_query, (error, result) => {
+    if(error){
+      response.status(500).send(error);
+    }
+    else{
+      response.status(200).send("Contact details has be Delated");
+    }
+  })
+})
 
 // Method - GET 
 // URL - http://localhost:5000/api/list/users
@@ -96,6 +136,7 @@ app.get("/api/list/users", (request, response) => {
     }
   })
 })
+
 
 
 // Method - GET
@@ -254,5 +295,8 @@ INSERT INTO karthick_table (name, age, location) VALUES ('Karthick', 29, 'Chenna
 
 USE travelix;
 SELECT * FROM karthick_table;
+
+USE fullstack;
+UPDATE contactdetails SET name='Hendry', email='h@yahoo.in', message='Updated the message' WHERE id=3;
 
 */
