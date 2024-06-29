@@ -1,6 +1,7 @@
 import React from 'react';
 
 import HeaderComponent from '../components/header';
+import DestinationInfoComponent from '../components/destination-info';
 import FooterComponenet from '../components/footer';
 
 const HomePage = () => {
@@ -231,44 +232,11 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-4 m-btm-40">
-              <div className="item">
-                <div className="project-destination">
-                  <a href="#" className="img" style={{ backgroundImage: `url(${require("../images/place-1.jpg")})` }}>
-                    <div className="text">
-                      <h3>Philippines</h3>
-                      <span>8 Tours</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
+            <DestinationInfoComponent placeName="Singapore" placeCount="8" placeImage={require("../images/place-1.jpg")}></DestinationInfoComponent>
+            <DestinationInfoComponent placeName="Dubai" placeCount="12" placeImage={require("../images/place-2.jpg")}></DestinationInfoComponent>
+            <DestinationInfoComponent placeName="America" placeCount="10" placeImage={require("../images/place-3.jpg")}></DestinationInfoComponent>
 
-            <div className="col-md-4 m-btm-40">
-              <div className="item">
-                <div className="project-destination">
-                  <a href="#" className="img" style={{ backgroundImage: `url(${require("../images/place-2.jpg")})` }}>
-                    <div className="text">
-                      <h3>Canada</h3>
-                      <span>2 Tours</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4 m-btm-40">
-              <div className="item">
-                <div className="project-destination">
-                  <a href="#" className="img" style={{ backgroundImage: `url(${require("../images/place-3.jpg")})` }}>
-                    <div className="text">
-                      <h3>Thailand</h3>
-                      <span>5 Tours</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
+            
 
           </div>
         </div>
