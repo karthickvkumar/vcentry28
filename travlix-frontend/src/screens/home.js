@@ -1,102 +1,87 @@
 import React from 'react';
 
+import HeaderComponent from '../components/header';
+import FooterComponenet from '../components/footer';
+
 const HomePage = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">Travelix<span>Travel Agency</span></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-          </button>
-
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
-              <li class="nav-item"><a href="hotel.html" class="nav-link">Hotel</a></li>
-              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div class="hero-wrap js-fullheight header-banner"
+      
+      <HeaderComponent></HeaderComponent>
+      <div className="hero-wrap js-fullheight header-banner"
         style={{ backgroundImage: `url(${require("../images/bg_5.jpg")})` }}>
-        <div class="overlay header-banner"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text js-fullheight align-items-center">
-            <div class="col-md-7">
-              <span class="subheading">Welcome to Travelix</span>
-              <h1 class="mb-4">Discover Your Favorite Place with Us</h1>
-              <p class="caps">Travel to the any corner of the world, without going around in circles</p>
+        <div className="overlay header-banner"></div>
+        <div className="container">
+          <div className="row no-gutters slider-text js-fullheight align-items-center">
+            <div className="col-md-7">
+              <span className="subheading">Welcome to Travelix</span>
+              <h1 className="mb-4">Discover Your Favorite Place with Us</h1>
+              <p className="caps">Travel to the any corner of the world, without going around in circles</p>
             </div>
 
           </div>
         </div>
       </div>
 
-      <section class="ftco-section ftco-no-pb ftco-no-pt">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="ftco-search d-flex justify-content-center">
-                <div class="row">
-                  <div class="col-md-12 nav-link-wrap">
-                    <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <section className="ftco-section ftco-no-pb ftco-no-pt">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="ftco-search d-flex justify-content-center">
+                <div className="row">
+                  <div className="col-md-12 nav-link-wrap">
+                    <div className="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                      <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+                      <a className="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
                         aria-controls="v-pills-2" aria-selected="false">Hotel</a>
 
-                      <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
+                      <a className="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
                         aria-controls="v-pills-1" aria-selected="true">Search Tour</a>
 
                     </div>
                   </div>
-                  <div class="col-md-12 tab-wrap">
+                  <div className="col-md-12 tab-wrap">
 
-                    <div class="tab-content" id="v-pills-tabContent">
+                    <div className="tab-content" id="v-pills-tabContent">
 
-                      <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
+                      <div className="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                         aria-labelledby="v-pills-nextgen-tab">
-                        <form action="#" class="search-property-1">
-                          <div class="row no-gutters">
-                            <div class="col-md d-flex">
-                              <div class="form-group p-4 border-0">
-                                <label for="#">Destination</label>
-                                <div class="form-field">
-                                  <div class="icon"><span class="fa fa-search"></span></div>
-                                  <input type="text" class="form-control" placeholder="Search place" />
+                        <form action="#" className="search-property-1">
+                          <div className="row no-gutters">
+                            <div className="col-md d-flex">
+                              <div className="form-group p-4 border-0">
+                                <label htmlFor="#">Destination</label>
+                                <div className="form-field">
+                                  <div className="icon"><span className="fa fa-search"></span></div>
+                                  <input type="text" className="form-control" placeholder="Search place" />
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md d-flex">
-                              <div class="form-group p-4">
-                                <label for="#">Check-in date</label>
-                                <div class="form-field">
-                                  <div class="icon"><span class="fa fa-calendar"></span></div>
-                                  <input type="text" class="form-control checkin_date" placeholder="Check In Date" />
+                            <div className="col-md d-flex">
+                              <div className="form-group p-4">
+                                <label htmlFor="#">Check-in date</label>
+                                <div className="form-field">
+                                  <div className="icon"><span className="fa fa-calendar"></span></div>
+                                  <input type="text" className="form-control checkin_date" placeholder="Check In Date" />
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md d-flex">
-                              <div class="form-group p-4">
-                                <label for="#">Check-out date</label>
-                                <div class="form-field">
-                                  <div class="icon"><span class="fa fa-calendar"></span></div>
-                                  <input type="text" class="form-control checkout_date" placeholder="Check Out Date" />
+                            <div className="col-md d-flex">
+                              <div className="form-group p-4">
+                                <label htmlFor="#">Check-out date</label>
+                                <div className="form-field">
+                                  <div className="icon"><span className="fa fa-calendar"></span></div>
+                                  <input type="text" className="form-control checkout_date" placeholder="Check Out Date" />
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md d-flex">
-                              <div class="form-group p-4">
-                                <label for="#">Price Limit</label>
-                                <div class="form-field">
-                                  <div class="select-wrap">
-                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                    <select name="" id="" class="form-control">
+                            <div className="col-md d-flex">
+                              <div className="form-group p-4">
+                                <label htmlFor="#">Price Limit</label>
+                                <div className="form-field">
+                                  <div className="select-wrap">
+                                    <div className="icon"><span className="fa fa-chevron-down"></span></div>
+                                    <select name="" id="" className="form-control">
                                       <option value="">$100</option>
                                       <option value="">$10,000</option>
                                       <option value="">$50,000</option>
@@ -116,11 +101,11 @@ const HomePage = () => {
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md d-flex">
-                              <div class="form-group d-flex w-100 border-0">
-                                <div class="form-field w-100 align-items-center d-flex">
+                            <div className="col-md d-flex">
+                              <div className="form-group d-flex w-100 border-0">
+                                <div className="form-field w-100 align-items-center d-flex">
                                   <input type="submit" value="Search"
-                                    class="align-self-stretch form-control btn btn-primary" />
+                                    className="align-self-stretch form-control btn btn-primary" />
                                 </div>
                               </div>
                             </div>
@@ -128,32 +113,32 @@ const HomePage = () => {
                         </form>
                       </div>
 
-                      <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                        <form action="#" class="search-property-1">
-                          <div class="row no-gutters">
-                            <div class="col-lg d-flex">
-                              <div class="form-group p-4 border-0">
-                                <label for="#">Destination</label>
-                                <div class="form-field">
-                                  <div class="icon"><span class="fa fa-search"></span></div>
-                                  <input type="text" class="form-control" placeholder="Search place" />
+                      <div className="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+                        <form action="#" className="search-property-1">
+                          <div className="row no-gutters">
+                            <div className="col-lg d-flex">
+                              <div className="form-group p-4 border-0">
+                                <label htmlFor="#">Destination</label>
+                                <div className="form-field">
+                                  <div className="icon"><span className="fa fa-search"></span></div>
+                                  <input type="text" className="form-control" placeholder="Search place" />
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg d-flex">
-                              <div class="form-group p-4 border-0">
-                                <label for="#">Location/Area</label>
-                                <div class="form-field">
-                                  <div class="icon"><span class="fa fa-location-arrow"></span></div>
-                                  <input type="text" class="form-control" placeholder="Search place" />
+                            <div className="col-lg d-flex">
+                              <div className="form-group p-4 border-0">
+                                <label htmlFor="#">Location/Area</label>
+                                <div className="form-field">
+                                  <div className="icon"><span className="fa fa-location-arrow"></span></div>
+                                  <input type="text" className="form-control" placeholder="Search place" />
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg d-flex">
-                              <div class="form-group d-flex w-100 border-0">
-                                <div class="form-field w-100 align-items-center d-flex">
+                            <div className="col-lg d-flex">
+                              <div className="form-group d-flex w-100 border-0">
+                                <div className="form-field w-100 align-items-center d-flex">
                                   <input type="submit" value="Search"
-                                    class="align-self-stretch form-control btn btn-primary p-0" />
+                                    className="align-self-stretch form-control btn btn-primary p-0" />
                                 </div>
                               </div>
                             </div>
@@ -169,64 +154,64 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section class="ftco-section services-section">
-        <div class="container">
-          <div class="row d-flex">
-            <div class="col-md-6 order-md-last heading-section pl-md-5 d-flex align-items-center">
-              <div class="w-100">
-                <span class="subheading">Welcome to Travelix</span>
-                <h2 class="mb-4">It's time to start your adventure</h2>
+      <section className="ftco-section services-section">
+        <div className="container">
+          <div className="row d-flex">
+            <div className="col-md-6 order-md-last heading-section pl-md-5 d-flex align-items-center">
+              <div className="w-100">
+                <span className="subheading">Welcome to Travelix</span>
+                <h2 className="mb-4">It's time to start your adventure</h2>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
                   paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                   blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
                   ocean.
                   A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+                <p><a href="#" className="btn btn-primary py-3 px-4">Search Destination</a></p>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div class="services services-1 color-1 d-block img"
+            <div className="col-md-6">
+              <div className="row">
+                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
+                  <div className="services services-1 color-1 d-block img"
                     style={{ backgroundImage: `url(${require("../images/services-1.jpg")})` }}>
-                    <div class="icon d-flex align-items-center justify-content-center"><span
-                      class="flaticon-paragliding"></span></div>
-                    <div class="media-body">
-                      <h3 class="heading mb-3">Activities</h3>
+                    <div className="icon d-flex align-items-center justify-content-center"><span
+                      className="flaticon-paragliding"></span></div>
+                    <div className="media-body">
+                      <h3 className="heading mb-3">Activities</h3>
                       <p>A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div class="services services-1 color-2 d-block img"
+                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
+                  <div className="services services-1 color-2 d-block img"
                     style={{ backgroundImage: `url(${require("../images/services-2.jpg")})` }}>
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span>
+                    <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-route"></span>
                     </div>
-                    <div class="media-body">
-                      <h3 class="heading mb-3">Travel Arrangements</h3>
+                    <div className="media-body">
+                      <h3 className="heading mb-3">Travel Arrangements</h3>
                       <p>A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div class="services services-1 color-3 d-block img"
+                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
+                  <div className="services services-1 color-3 d-block img"
                     style={{ backgroundImage: `url(${require("../images/services-3.jpg")})` }}>
-                    <div class="icon d-flex align-items-center justify-content-center"><span
-                      class="flaticon-tour-guide"></span></div>
-                    <div class="media-body">
-                      <h3 class="heading mb-3">Private Guide</h3>
+                    <div className="icon d-flex align-items-center justify-content-center"><span
+                      className="flaticon-tour-guide"></span></div>
+                    <div className="media-body">
+                      <h3 className="heading mb-3">Private Guide</h3>
                       <p>A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div class="services services-1 color-4 d-block img"
+                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
+                  <div className="services services-1 color-4 d-block img"
                     style={{ backgroundImage: `url(${require("../images/services-4.jpg")})` }}>
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span>
+                    <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-map"></span>
                     </div>
-                    <div class="media-body">
-                      <h3 class="heading mb-3">Location Manager</h3>
+                    <div className="media-body">
+                      <h3 className="heading mb-3">Location Manager</h3>
                       <p>A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                   </div>
@@ -237,20 +222,20 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section class="ftco-sections">
-        <div class="container">
-          <div class="row justify-content-center pb-4">
-            <div class="col-md-12 heading-section text-center">
-              <span class="subheading">Destination</span>
-              <h2 class="mb-4">Tour Destination</h2>
+      <section className="ftco-sections">
+        <div className="container">
+          <div className="row justify-content-center pb-4">
+            <div className="col-md-12 heading-section text-center">
+              <span className="subheading">Destination</span>
+              <h2 className="mb-4">Tour Destination</h2>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4 m-btm-40">
-              <div class="item">
-                <div class="project-destination">
-                  <a href="#" class="img" style={{ backgroundImage: `url(${require("../images/place-1.jpg")})` }}>
-                    <div class="text">
+          <div className="row">
+            <div className="col-md-4 m-btm-40">
+              <div className="item">
+                <div className="project-destination">
+                  <a href="#" className="img" style={{ backgroundImage: `url(${require("../images/place-1.jpg")})` }}>
+                    <div className="text">
                       <h3>Philippines</h3>
                       <span>8 Tours</span>
                     </div>
@@ -259,11 +244,11 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div class="col-md-4 m-btm-40">
-              <div class="item">
-                <div class="project-destination">
-                  <a href="#" class="img" style={{ backgroundImage: `url(${require("../images/place-2.jpg")})` }}>
-                    <div class="text">
+            <div className="col-md-4 m-btm-40">
+              <div className="item">
+                <div className="project-destination">
+                  <a href="#" className="img" style={{ backgroundImage: `url(${require("../images/place-2.jpg")})` }}>
+                    <div className="text">
                       <h3>Canada</h3>
                       <span>2 Tours</span>
                     </div>
@@ -272,11 +257,11 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div class="col-md-4 m-btm-40">
-              <div class="item">
-                <div class="project-destination">
-                  <a href="#" class="img" style={{ backgroundImage: `url(${require("../images/place-3.jpg")})` }}>
-                    <div class="text">
+            <div className="col-md-4 m-btm-40">
+              <div className="item">
+                <div className="project-destination">
+                  <a href="#" className="img" style={{ backgroundImage: `url(${require("../images/place-3.jpg")})` }}>
+                    <div className="text">
                       <h3>Thailand</h3>
                       <span>5 Tours</span>
                     </div>
@@ -289,70 +274,70 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section class="ftco-sections">
-        <div class="container">
-          <div class="row justify-content-center pb-4">
-            <div class="col-md-12 heading-section text-center">
-              <span class="subheading">Our Blog</span>
-              <h2 class="mb-4">Recent Post</h2>
+      <section className="ftco-sections">
+        <div className="container">
+          <div className="row justify-content-center pb-4">
+            <div className="col-md-12 heading-section text-center">
+              <span className="subheading">Our Blog</span>
+              <h2 className="mb-4">Recent Post</h2>
             </div>
           </div>
-          <div class="row d-flex">
-            <div class="col-md-4 d-flex">
-              <div class="blog-entry justify-content-end">
-                <a href="blog-single.html" class="block-20" style={{ backgroundImage: `url(${require("../images/image_1.jpg")})` }}>
+          <div className="row d-flex">
+            <div className="col-md-4 d-flex">
+              <div className="blog-entry justify-content-end">
+                <a href="blog-single.html" className="block-20" style={{ backgroundImage: `url(${require("../images/image_1.jpg")})` }}>
                 </a>
-                <div class="text">
-                  <div class="d-flex align-items-center mb-4 topp">
-                    <div class="one">
-                      <span class="day">11</span>
+                <div className="text">
+                  <div className="d-flex align-items-center mb-4 topp">
+                    <div className="one">
+                      <span className="day">11</span>
                     </div>
-                    <div class="two">
-                      <span class="yr">2020</span>
-                      <span class="mos">September</span>
+                    <div className="two">
+                      <span className="yr">2020</span>
+                      <span className="mos">September</span>
                     </div>
                   </div>
-                  <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                  <p><a href="#" class="btn btn-primary">Read more</a></p>
+                  <h3 className="heading"><a href="#">Most Popular Place In This World</a></h3>
+                  <p><a href="#" className="btn btn-primary">Read more</a></p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 d-flex">
-              <div class="blog-entry justify-content-end">
-                <a href="blog-single.html" class="block-20" style={{ backgroundImage: `url(${require("../images/image_2.jpg")})` }}>
+            <div className="col-md-4 d-flex">
+              <div className="blog-entry justify-content-end">
+                <a href="blog-single.html" className="block-20" style={{ backgroundImage: `url(${require("../images/image_2.jpg")})` }}>
                 </a>
-                <div class="text">
-                  <div class="d-flex align-items-center mb-4 topp">
-                    <div class="one">
-                      <span class="day">11</span>
+                <div className="text">
+                  <div className="d-flex align-items-center mb-4 topp">
+                    <div className="one">
+                      <span className="day">11</span>
                     </div>
-                    <div class="two">
-                      <span class="yr">2020</span>
-                      <span class="mos">September</span>
+                    <div className="two">
+                      <span className="yr">2020</span>
+                      <span className="mos">September</span>
                     </div>
                   </div>
-                  <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                  <p><a href="#" class="btn btn-primary">Read more</a></p>
+                  <h3 className="heading"><a href="#">Most Popular Place In This World</a></h3>
+                  <p><a href="#" className="btn btn-primary">Read more</a></p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 d-flex">
-              <div class="blog-entry">
-                <a href="blog-single.html" class="block-20" style={{ backgroundImage: `url(${require("../images/image_3.jpg")})` }}>
+            <div className="col-md-4 d-flex">
+              <div className="blog-entry">
+                <a href="blog-single.html" className="block-20" style={{ backgroundImage: `url(${require("../images/image_3.jpg")})` }}>
                 </a>
-                <div class="text">
-                  <div class="d-flex align-items-center mb-4 topp">
-                    <div class="one">
-                      <span class="day">11</span>
+                <div className="text">
+                  <div className="d-flex align-items-center mb-4 topp">
+                    <div className="one">
+                      <span className="day">11</span>
                     </div>
-                    <div class="two">
-                      <span class="yr">2020</span>
-                      <span class="mos">September</span>
+                    <div className="two">
+                      <span className="yr">2020</span>
+                      <span className="mos">September</span>
                     </div>
                   </div>
-                  <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+                  <h3 className="heading"><a href="#">Most Popular Place In This World</a></h3>
 
-                  <p><a href="#" class="btn btn-primary">Read more</a></p>
+                  <p><a href="#" className="btn btn-primary">Read more</a></p>
                 </div>
               </div>
             </div>
@@ -360,80 +345,22 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section class="ftco-intro ftco-section ftco-no-pt">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-              <div class="img" style={{ backgroundImage: `url(${require("../images/bg_2.jpg")})` }}>
-                <div class="overlay"></div>
+      <section className="ftco-intro ftco-section ftco-no-pt">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-md-12 text-center">
+              <div className="img" style={{ backgroundImage: `url(${require("../images/bg_2.jpg")})` }}>
+                <div className="overlay"></div>
                 <h2>We Are Travelix A Travel Agency</h2>
                 <p>We can manage your dream building A small river named Duden flows by their place</p>
-                <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
+                <p className="mb-0"><a href="#" className="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <footer class="ftco-footer bg-bottom ftco-no-pt" style={{ backgroundImage: `url(${require("../images/bg_3.jpg")})` }}>
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-md pt-5">
-              <div class="ftco-footer-widget pt-md-5 mb-4">
-                <h2 class="ftco-heading-2">About</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-                  blind texts.</p>
-                <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                  <li><a href=" #"><span class="fa fa-twitter"></span></a></li>
-                  <li><a href=" #"><span class="fa fa-facebook"></span></a></li>
-                  <li><a href=" #"><span class="fa fa-instagram"></span></a></li>
-                </ul>
-              </div >
-            </div >
-            <div class="col-md pt-5 border-left">
-              <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                <h2 class="ftco-heading-2">Infromation</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-                  <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-                  <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                  <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                  <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-                  <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md pt-5 border-left">
-              <div class="ftco-footer-widget pt-md-5 mb-4">
-                <h2 class="ftco-heading-2">Experience</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                  <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
-                  <li><a href="#" class="py-2 d-block">Beach</a></li>
-                  <li><a href="#" class="py-2 d-block">Nature</a></li>
-                  <li><a href="#" class="py-2 d-block">Camping</a></li>
-                  <li><a href="#" class="py-2 d-block">Party</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md pt-5 border-left">
-              <div class="ftco-footer-widget pt-md-5 mb-4">
-                <h2 class="ftco-heading-2">Have a Questions?</h2>
-                <div class="block-23 mb-3">
-                  <ul>
-                    <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San
-                      Francisco, California, USA</span></li>
-                    <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                    <li><a href="#"><span class="icon fa fa-paper-plane"></span><span
-                      class="text">info@yourdomain.com</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div >
-
-        </div >
-      </footer >
+      <FooterComponenet></FooterComponenet>
     </div >
   );
 };

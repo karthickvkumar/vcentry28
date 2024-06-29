@@ -9,6 +9,7 @@ import HotelPage from "./screens/hotel";
 
 import "./css/flaticon.css";
 import "./css/style.css";
+import "./css/custom.css";
 
 const App = () => {
   return(
