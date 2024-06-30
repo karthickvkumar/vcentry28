@@ -3,26 +3,26 @@ import React from 'react';
 const HotelInfoComponent = (props) => {
   console.log(props)
   return (
-    <div class="col-md-4">
-      <div class="project-wrap hotel">
-        <a href="#" class="img" style={{ backgroundImage: `url(${props.hotelImage})` }}>
-          <span class="price">${props.hotelPrice}/person</span>
+    <div className="col-md-4">
+      <div className="project-wrap hotel">
+        <a href="#" className="img" style={{ backgroundImage: `url(${props.hotelImage})` }}>
+          <span className="price">${props.hotelPrice}/person</span>
         </a>
-        <div class="text p-4">
-          <p class="star mb-2">
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+        <div className="text p-4">
+          <p className="star mb-2">
+            <span className="fa fa-star"></span>
+            <span className="fa fa-star"></span>
+            <span className="fa fa-star"></span>
+            <span className="fa fa-star"></span>
+            <span className="fa fa-star"></span>
           </p>
-          <span class="days">{props.hotelTourCount} Days Tour</span>
+          <span className="days">{props.hotelTourCount} Days Tour</span>
           <h3><a href="#">{props.hotelName}</a></h3>
-          <p class="location"><span class="fa fa-map-marker"></span>{props.hotelLocation}</p>
+          <p className="location"><span className="fa fa-map-marker"></span>{props.hotelLocation}</p>
           <ul>
-            <li><span class="flaticon-shower"></span>2</li>
-            <li><span class="flaticon-king-size"></span>3</li>
-            <li><span class="flaticon-mountains"></span>Near Mountain</li>
+            <li><span className="flaticon-shower"></span>2</li>
+            <li><span className="flaticon-king-size"></span>3</li>
+            <li><span className="flaticon-mountains"></span>Near Mountain</li>
           </ul>
         </div>
       </div>

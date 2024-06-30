@@ -59,11 +59,11 @@ const DestinationPage = () => {
     <div>
       <HeaderComponent></HeaderComponent>
       <HeadingSectionComponent backgroundImage={require("../images/bg_4.jpg")} textContent="Tour List"></HeadingSectionComponent>
-      <section class="ftco-section ftco-no-pb">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="search-wrap-1">
+      <section className="ftco-section ftco-no-pb">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="search-wrap-1">
                 <TourSearchComponent></TourSearchComponent>
               </div>
             </div>
@@ -71,9 +71,9 @@ const DestinationPage = () => {
         </div>
       </section>
 
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row">
+      <section className="ftco-section">
+        <div className="container">
+          <div className="row">
             {
               tourDestination.map((value, index) => {
                 return (

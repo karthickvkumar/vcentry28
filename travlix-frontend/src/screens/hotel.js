@@ -28,11 +28,11 @@ const HotelPage = () => {
     <div>
       <HeaderComponent></HeaderComponent>
       <HeadingSectionComponent backgroundImage={require("../images/bg_1.jpg")} textContent="Hotel List"></HeadingSectionComponent>
-      <section class="ftco-section ftco-no-pb">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="search-wrap-1">
+      <section className="ftco-section ftco-no-pb">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="search-wrap-1">
                 <HotelSearchComponent></HotelSearchComponent>
               </div>
             </div>
@@ -40,13 +40,13 @@ const HotelPage = () => {
         </div>
       </section>
 
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row">
+      <section className="ftco-section">
+        <div className="container">
+          <div className="row">
             {
               hotelList.map((value, index) => {
                 return(
-                  <HotelInfoComponent {...value}></HotelInfoComponent>
+                  <HotelInfoComponent key={index} {...value}></HotelInfoComponent>
                 )
               })
             }
