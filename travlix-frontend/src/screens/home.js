@@ -1,10 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import HeaderComponent from '../components/header';
 import DestinationInfoComponent from '../components/destination-info';
 import FooterComponenet from '../components/footer';
+import ServiceInfoComponent from '../components/service-info';
+import HotelSearchComponent from '../components/hotel-search';
+import TourSearchComponent from '../components/tour-search';
+import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
+
+  const tourDestination = [
+    {
+      placeName: "Singapore",
+      placeCount: "80",
+      placeImage: require("../images/place-1.jpg")
+    },
+    {
+      placeName: "Canada",
+      placeCount: "12",
+      placeImage: require("../images/place-2.jpg")
+    },
+    {
+      placeName: "Malaysia",
+      placeCount: "10",
+      placeImage: require("../images/place-3.jpg")
+    },
+  ]
+
+  const [enableHotelFilter, updateHotelFilter] = useState(true);
+
+  const showHoteSearch = () => {
+    updateHotelFilter(true);
+  }
+  
+  const showTourSearch = () => {
+    updateHotelFilter(false);
+  }
+
   return (
     <div>
       
@@ -33,119 +66,24 @@ const HomePage = () => {
                   <div className="col-md-12 nav-link-wrap">
                     <div className="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                      <a className="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
-                        aria-controls="v-pills-2" aria-selected="false">Hotel</a>
+                      <NavLink to="/" className={enableHotelFilter ? "nav-link selected-search" : "nav-link"}  id="v-pills-2-tab" data-toggle="pill" role="tab" onClick={() => showHoteSearch()}
+                        aria-controls="v-pills-2" aria-selected="false">Hotel</NavLink>
 
-                      <a className="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
-                        aria-controls="v-pills-1" aria-selected="true">Search Tour</a>
+                      <NavLink to="/" onClick={() => showTourSearch()} className={enableHotelFilter ? "nav-link" : "nav-link selected-search"} id="v-pills-1-tab" data-toggle="pill" role="tab"
+                        aria-controls="v-pills-1" aria-selected="true">Search Tour</NavLink>
 
                     </div>
                   </div>
                   <div className="col-md-12 tab-wrap">
 
                     <div className="tab-content" id="v-pills-tabContent">
-
-                      <div className="tab-pane fade show active" id="v-pills-1" role="tabpanel"
-                        aria-labelledby="v-pills-nextgen-tab">
-                        <form action="#" className="search-property-1">
-                          <div className="row no-gutters">
-                            <div className="col-md d-flex">
-                              <div className="form-group p-4 border-0">
-                                <label htmlFor="#">Destination</label>
-                                <div className="form-field">
-                                  <div className="icon"><span className="fa fa-search"></span></div>
-                                  <input type="text" className="form-control" placeholder="Search place" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md d-flex">
-                              <div className="form-group p-4">
-                                <label htmlFor="#">Check-in date</label>
-                                <div className="form-field">
-                                  <div className="icon"><span className="fa fa-calendar"></span></div>
-                                  <input type="text" className="form-control checkin_date" placeholder="Check In Date" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md d-flex">
-                              <div className="form-group p-4">
-                                <label htmlFor="#">Check-out date</label>
-                                <div className="form-field">
-                                  <div className="icon"><span className="fa fa-calendar"></span></div>
-                                  <input type="text" className="form-control checkout_date" placeholder="Check Out Date" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md d-flex">
-                              <div className="form-group p-4">
-                                <label htmlFor="#">Price Limit</label>
-                                <div className="form-field">
-                                  <div className="select-wrap">
-                                    <div className="icon"><span className="fa fa-chevron-down"></span></div>
-                                    <select name="" id="" className="form-control">
-                                      <option value="">$100</option>
-                                      <option value="">$10,000</option>
-                                      <option value="">$50,000</option>
-                                      <option value="">$100,000</option>
-                                      <option value="">$200,000</option>
-                                      <option value="">$300,000</option>
-                                      <option value="">$400,000</option>
-                                      <option value="">$500,000</option>
-                                      <option value="">$600,000</option>
-                                      <option value="">$700,000</option>
-                                      <option value="">$800,000</option>
-                                      <option value="">$900,000</option>
-                                      <option value="">$1,000,000</option>
-                                      <option value="">$2,000,000</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md d-flex">
-                              <div className="form-group d-flex w-100 border-0">
-                                <div className="form-field w-100 align-items-center d-flex">
-                                  <input type="submit" value="Search"
-                                    className="align-self-stretch form-control btn btn-primary" />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-
-                      <div className="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                        <form action="#" className="search-property-1">
-                          <div className="row no-gutters">
-                            <div className="col-lg d-flex">
-                              <div className="form-group p-4 border-0">
-                                <label htmlFor="#">Destination</label>
-                                <div className="form-field">
-                                  <div className="icon"><span className="fa fa-search"></span></div>
-                                  <input type="text" className="form-control" placeholder="Search place" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg d-flex">
-                              <div className="form-group p-4 border-0">
-                                <label htmlFor="#">Location/Area</label>
-                                <div className="form-field">
-                                  <div className="icon"><span className="fa fa-location-arrow"></span></div>
-                                  <input type="text" className="form-control" placeholder="Search place" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg d-flex">
-                              <div className="form-group d-flex w-100 border-0">
-                                <div className="form-field w-100 align-items-center d-flex">
-                                  <input type="submit" value="Search"
-                                    className="align-self-stretch form-control btn btn-primary p-0" />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+                      {
+                        enableHotelFilter ? 
+                        <HotelSearchComponent></HotelSearchComponent>
+                        :
+                        <TourSearchComponent></TourSearchComponent>
+                      }
+                      
                     </div>
                   </div>
                 </div>
@@ -155,73 +93,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="ftco-section services-section">
-        <div className="container">
-          <div className="row d-flex">
-            <div className="col-md-6 order-md-last heading-section pl-md-5 d-flex align-items-center">
-              <div className="w-100">
-                <span className="subheading">Welcome to Travelix</span>
-                <h2 className="mb-4">It's time to start your adventure</h2>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
-                  paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-                  blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
-                  ocean.
-                  A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" className="btn btn-primary py-3 px-4">Search Destination</a></p>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="row">
-                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div className="services services-1 color-1 d-block img"
-                    style={{ backgroundImage: `url(${require("../images/services-1.jpg")})` }}>
-                    <div className="icon d-flex align-items-center justify-content-center"><span
-                      className="flaticon-paragliding"></span></div>
-                    <div className="media-body">
-                      <h3 className="heading mb-3">Activities</h3>
-                      <p>A small river named Duden flows by their place and supplies it with the necessary</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div className="services services-1 color-2 d-block img"
-                    style={{ backgroundImage: `url(${require("../images/services-2.jpg")})` }}>
-                    <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-route"></span>
-                    </div>
-                    <div className="media-body">
-                      <h3 className="heading mb-3">Travel Arrangements</h3>
-                      <p>A small river named Duden flows by their place and supplies it with the necessary</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div className="services services-1 color-3 d-block img"
-                    style={{ backgroundImage: `url(${require("../images/services-3.jpg")})` }}>
-                    <div className="icon d-flex align-items-center justify-content-center"><span
-                      className="flaticon-tour-guide"></span></div>
-                    <div className="media-body">
-                      <h3 className="heading mb-3">Private Guide</h3>
-                      <p>A small river named Duden flows by their place and supplies it with the necessary</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 col-lg-6 d-flex align-self-stretch">
-                  <div className="services services-1 color-4 d-block img"
-                    style={{ backgroundImage: `url(${require("../images/services-4.jpg")})` }}>
-                    <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-map"></span>
-                    </div>
-                    <div className="media-body">
-                      <h3 className="heading mb-3">Location Manager</h3>
-                      <p>A small river named Duden flows by their place and supplies it with the necessary</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceInfoComponent></ServiceInfoComponent>
 
       <section className="ftco-sections">
         <div className="container">
@@ -232,11 +104,14 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row">
-            <DestinationInfoComponent placeName="Singapore" placeCount="8" placeImage={require("../images/place-1.jpg")}></DestinationInfoComponent>
-            <DestinationInfoComponent placeName="Dubai" placeCount="12" placeImage={require("../images/place-2.jpg")}></DestinationInfoComponent>
-            <DestinationInfoComponent placeName="America" placeCount="10" placeImage={require("../images/place-3.jpg")}></DestinationInfoComponent>
 
-            
+            {
+              tourDestination.map((value, index) => {
+                return(
+                  <DestinationInfoComponent key={index} placeName={value.placeName} placeCount={value.placeCount} placeImage={value.placeImage}></DestinationInfoComponent>
+                )
+              })
+            }
 
           </div>
         </div>
@@ -328,7 +203,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <FooterComponenet></FooterComponenet>
+      <FooterComponenet infomration="You are in Home Page"></FooterComponenet>
     </div >
   );
 };

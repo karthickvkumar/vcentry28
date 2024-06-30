@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FooterComponenet = () => {
+const FooterComponenet = (props) => {
   return (
     <footer className="ftco-footer bg-bottom ftco-no-pt" style={{ backgroundImage: `url(${require("../images/bg_3.jpg")})` }}>
       <div className="container">
