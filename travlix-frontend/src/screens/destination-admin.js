@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+import axios from "axios";
 
 const DestinationAdminPage = () => {
 
     const [destinationForm, uploadDestinationForm] = useState({
-        destinationName : "",
-        destinationImage : "",
-        destinationCount : ""
+        name : "",
+        image : "",
+        count : ""
     });
 
     const uploadImage = (event) => {
@@ -26,7 +27,15 @@ const DestinationAdminPage = () => {
     }
 
     const uploadDestination = () => {
-        console.log(destinationForm);
+        // console.log(destinationForm);
+        const url = "http://localhost:4000/api/destinaiton/add";
+        axios.post(url, destinationForm)
+            .then((resposne) => {
+                alert(resposne.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     return (
@@ -34,15 +43,15 @@ const DestinationAdminPage = () => {
             <h2>Destination Admin</h2>
             <div>
                 <label>Enter Destination Name</label>
-                <input type='text' placeholder='Destination Name' onChange={handleInput} name='destinationName'/>
+                <input type='text' placeholder='Destination Name' onChange={handleInput} name='name'/>
             </div>
             <div>
                 <label>Upload Destination Image</label>
-                <input type='file' onChange={uploadImage} name='destinationImage'/>
+                <input type='file' onChange={uploadImage} name='image'/>
             </div>
             <div>
                 <label>Enter Destination Count</label>
-                <input type='text' placeholder='Destination Count' onChange={handleInput} name='destinationCount'/>
+                <input type='text' placeholder='Destination Count' onChange={handleInput} name='count'/>
             </div>
             <div>
                 <button onClick={() => uploadDestination()}>Upload Destination</button>
