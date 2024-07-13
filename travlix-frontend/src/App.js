@@ -6,6 +6,8 @@ import ContactPage from "./screens/contact";
 import AboutPage from "./screens/about";
 import DestinationPage from "./screens/destination";
 import HotelPage from "./screens/hotel";
+import DestinationAdminPage from "./screens/destination-admin";
+import HotelAdminPage from "./screens/hotel-admin";
 
 import "./css/flaticon.css";
 import "./css/style.css";
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="about" element={<AboutPage></AboutPage>}></Route>
         <Route path="destination" element={<DestinationPage></DestinationPage>}></Route>
         <Route path="hotels" element={<HotelPage></HotelPage>}></Route>
+        <Route path="destination-admin" element={<DestinationAdminPage></DestinationAdminPage>}></Route>
+        <Route path="hotel-admin" element={<HotelAdminPage></HotelAdminPage>}></Route>
       </Routes>
     </BrowserRouter>
   )
