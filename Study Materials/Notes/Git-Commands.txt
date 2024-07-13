@@ -1,0 +1,8 @@
+Git Commands
+1. git init
+2. git remote add origin https://github.com/username/reponame.git
+3. git add .
+4. git commit -m "message" 
+   4.1 git config --global user.name "githubUsername"
+   4.2 git config --global user.email "guthubEmail"
+5. git push origin master
