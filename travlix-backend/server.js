@@ -66,6 +66,20 @@ app.get("/api/destination/load", (request, response) => {
     })
 })
 
+app.delete("/api/destination/delete/:id", (request, response) => {
+    const id = request.params.id;
+    const sqlQuery = `DELETE FROM karthick_destinations WHERE id=${id}`;
+
+    connection.query(sqlQuery, (error, result) => {
+        if(error){
+            response.status(500).send("Pls contact Admin");
+        }
+        else{
+            response.status(200).send("Record has been deleted");
+        }
+    })
+})
+
 
 const port = 4000;
 server.listen(port, () => {

@@ -11,6 +11,8 @@ const DestinationAdminPage = () => {
     });
     const [isLoading, setLoading] = useState(false);
 
+    const [destinationList, setDestinationList] = useState([]);
+
     useEffect(() => {
         loadAllDestination();
     }, []);
@@ -40,6 +42,7 @@ const DestinationAdminPage = () => {
             .then((resposne) => {
                 setLoading(false);
                 alert(resposne.data);
+                loadAllDestination();
             })
             .catch((error) => {
                 setLoading(false);
@@ -52,7 +55,20 @@ const DestinationAdminPage = () => {
 
         axios.get(url)
             .then((response) => {
-                console.log(response.data);
+                setDestinationList(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+    const deleteDestination = (id) => {
+        const url = "http://localhost:4000/api/destination/delete/" + id;
+
+        axios.delete(url)
+            .then((response) => {
+                alert(response.data);
+                loadAllDestination();
             })
             .catch((error) => {
                 console.log(error);
@@ -81,6 +97,38 @@ const DestinationAdminPage = () => {
             <div>
                 <button onClick={() => uploadDestination()}>{isLoading ? "Loading..." : "Upload Destination"}</button>
                 {isLoading && <img src={require("../images/loader.gif")} width="50" />}
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location </th>
+                            <th>Image</th>
+                            <th>Count</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            destinationList.map((value, index) => {
+                                return(
+                                    <tr key={index}>
+                                        <td>{value.name}</td>
+                                        <td>{value.location}</td>
+                                        <td>
+                                            <img src={value.image} width={100}/>
+                                        </td>
+                                        <td>{value.count}</td>
+                                        <td>
+                                            <button onClick={() => deleteDestination(value.id)}>Delete</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     );
