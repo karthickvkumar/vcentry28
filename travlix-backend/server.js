@@ -71,3 +71,6 @@ const port = 4000;
 server.listen(port, () => {
     console.log("Node JS is running on port 4000");
 })
+
+
+// ALTER TABLE table_name ADD columName dataType;
