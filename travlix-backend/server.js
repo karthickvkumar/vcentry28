@@ -81,10 +81,34 @@ app.delete("/api/destination/delete/:id", (request, response) => {
 })
 
 
+app.post("/api/hotel/add", (request, response) => {
+    const incomingValue = request.body;
+    const actualPrice = parseInt(incomingValue.price);
+
+    const sqlQuery = `INSERT INTO karthick_hotels (name, location, price, image, destination) VALUES ('${incomingValue.name}', '${incomingValue.location}', '${actualPrice}', '${incomingValue.image}', '${incomingValue.destination}')`;
+
+    connection.query(sqlQuery, (error, result) => {
+        if(error){
+            response.status(500).send("Pls contact Admin");
+        }
+        else{
+            response.status(200).send("Hotel has been added");
+        }
+    })  
+});
+
 const port = 4000;
 server.listen(port, () => {
     console.log("Node JS is running on port 4000");
 })
 
 
-// ALTER TABLE table_name ADD columName dataType;
+/* 
+
+ALTER TABLE table_name ADD columName dataType;
+
+USE travelix;
+CREATE TABLE karthick_hotels (name varchar(255), location varchar(255), price int, image LONGTEXT, destination varchar(255), id int NOT NULL AUTO_INCREMENT, PRIMARY KEY(id));
+
+
+*/
