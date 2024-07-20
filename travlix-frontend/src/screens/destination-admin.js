@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
 
 const DestinationAdminPage = () => {
@@ -6,8 +6,14 @@ const DestinationAdminPage = () => {
     const [destinationForm, uploadDestinationForm] = useState({
         name : "",
         image : "",
-        count : ""
+        count : "",
+        location: ""
     });
+    const [isLoading, setLoading] = useState(false);
+
+    useEffect(() => {
+        loadAllDestination();
+    }, []);
 
     const uploadImage = (event) => {
         //console.log(event.target.files);
@@ -28,10 +34,25 @@ const DestinationAdminPage = () => {
 
     const uploadDestination = () => {
         // console.log(destinationForm);
+        setLoading(true);
         const url = "http://localhost:4000/api/destinaiton/add";
         axios.post(url, destinationForm)
             .then((resposne) => {
+                setLoading(false);
                 alert(resposne.data);
+            })
+            .catch((error) => {
+                setLoading(false);
+                console.log(error);
+            })
+    }
+
+    const loadAllDestination = () => {
+        const url = "http://localhost:4000/api/destination/load";
+
+        axios.get(url)
+            .then((response) => {
+                console.log(response.data);
             })
             .catch((error) => {
                 console.log(error);
@@ -54,7 +75,12 @@ const DestinationAdminPage = () => {
                 <input type='text' placeholder='Destination Count' onChange={handleInput} name='count'/>
             </div>
             <div>
-                <button onClick={() => uploadDestination()}>Upload Destination</button>
+                <label>Enter Destination Location</label>
+                <input type='text' placeholder='Destination Location' name="location" onChange={handleInput}/>
+            </div>
+            <div>
+                <button onClick={() => uploadDestination()}>{isLoading ? "Loading..." : "Upload Destination"}</button>
+                {isLoading && <img src={require("../images/loader.gif")} width="50" />}
             </div>
         </div>
     );

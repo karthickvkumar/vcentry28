@@ -41,7 +41,7 @@ connection.connect((error) => {
 app.post("/api/destinaiton/add", (request, response) => {
     const incomingValue = request.body;
 
-    const sqlQuery = `INSERT INTO karthick_destinations (name, image, count) VALUES ('${incomingValue.name}', '${incomingValue.image}', '${incomingValue.count}')`;
+    const sqlQuery = `INSERT INTO karthick_destinations (name, image, count, location) VALUES ('${incomingValue.name}', '${incomingValue.image}', '${incomingValue.count}', '${incomingValue.location}')`;
 
     connection.query(sqlQuery, (error, result) => {
         if(error){
@@ -51,7 +51,19 @@ app.post("/api/destinaiton/add", (request, response) => {
             response.status(200).send("Destination has been added");
         }
     })  
+});
 
+app.get("/api/destination/load", (request, response) => {
+    const sqlQuery = `SELECT * FROM karthick_destinations`;
+
+    connection.query(sqlQuery, (error, result) => {
+        if(error){
+            response.status(500).send("Pls contact Admin");
+        }
+        else{
+            response.status(200).send(result);
+        }
+    })
 })
 
 
