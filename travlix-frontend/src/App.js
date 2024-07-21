@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import HomePage from "./screens/home";
@@ -15,8 +15,16 @@ import "./css/style.css";
 import "./css/custom.css";
 
 const App = () => {
+
+  const [filterList, setFilterList] = useState([]);
+
+  const exchangeValue = (value) => {
+    debugger;
+    setFilterList(value);
+  }
+
   return(
-    <DataSharing.Provider>
+    <DataSharing.Provider value={{exchangeValue, filterList}}>
       <BrowserRouter>
         <Routes>
           <Route path="" element={<HomePage></HomePage>}></Route>

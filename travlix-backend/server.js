@@ -80,6 +80,33 @@ app.delete("/api/destination/delete/:id", (request, response) => {
     })
 })
 
+app.get("/api/destination/search" , (request, response) => {
+    const destination = request.query.destination;
+    const location = request.query.location;
+    
+    let sqlQuery = `SELECT * FROM karthick_destinations WHERE name LIKE '${destination}' AND location LIKE '${location}'`;
+
+    if(destination === '' && location === ''){
+        response.status(400).send("Invalid Search Data");
+    }
+    else if(destination !== '' && location === ''){
+        sqlQuery =  `SELECT * FROM karthick_destinations WHERE name LIKE '${destination}'`
+    }
+    else if(destination === '' && location !== ''){
+        sqlQuery =  `SELECT * FROM karthick_destinations WHERE location LIKE '${location}'`
+    }
+    
+    connection.query(sqlQuery, (error, result) => {
+        if(error){
+            response.status(500).send("Pls contact Admin");
+        }
+        else{
+            response.status(200).send(result);
+        }
+    })
+    
+})
+
 
 app.post("/api/hotel/add", (request, response) => {
     const incomingValue = request.body;
@@ -110,5 +137,6 @@ ALTER TABLE table_name ADD columName dataType;
 USE travelix;
 CREATE TABLE karthick_hotels (name varchar(255), location varchar(255), price int, image LONGTEXT, destination varchar(255), id int NOT NULL AUTO_INCREMENT, PRIMARY KEY(id));
 
-
+USE travelix;
+SELECT * FROM karthick_destinations WHERE name LIKE 'Beach' AND location LIKE 'Mumbai';
 */

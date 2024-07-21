@@ -1,59 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import HeaderComponent from '../components/header';
 import HeadingSectionComponent from '../components/heading-section';
 import TourSearchComponent from '../components/tour-search';
 import DestinationInfoComponent from '../components/destination-info';
 import FooterComponenet from '../components/footer';
+import DataSharing from '../context/context-api';
 
 const DestinationPage = () => {
 
-  const tourDestination = [
-    {
-      placeName: "Singapore",
-      placeCount: "80",
-      placeImage: require("../images/place-1.jpg")
-    },
-    {
-      placeName: "Canada",
-      placeCount: "12",
-      placeImage: require("../images/place-2.jpg")
-    },
-    {
-      placeName: "Malaysia",
-      placeCount: "10",
-      placeImage: require("../images/place-3.jpg")
-    },
-    {
-      placeName: "Singapore",
-      placeCount: "80",
-      placeImage: require("../images/place-1.jpg")
-    },
-    {
-      placeName: "Canada",
-      placeCount: "12",
-      placeImage: require("../images/place-2.jpg")
-    },
-    {
-      placeName: "Malaysia",
-      placeCount: "10",
-      placeImage: require("../images/place-3.jpg")
-    },
-    {
-      placeName: "Singapore",
-      placeCount: "80",
-      placeImage: require("../images/place-1.jpg")
-    },
-    {
-      placeName: "Canada",
-      placeCount: "12",
-      placeImage: require("../images/place-2.jpg")
-    },
-    {
-      placeName: "Malaysia",
-      placeCount: "10",
-      placeImage: require("../images/place-3.jpg")
-    }
-  ]
+  const context = useContext(DataSharing);
 
   return (
     <div>
@@ -75,11 +30,13 @@ const DestinationPage = () => {
         <div className="container">
           <div className="row">
             {
-              tourDestination.map((value, index) => {
+              context.filterList.length > 0 ? context.filterList.map((value, index) => {
                 return (
-                  <DestinationInfoComponent key={index} placeName={value.placeName} placeCount={value.placeCount} placeImage={value.placeImage}></DestinationInfoComponent>
+                  <DestinationInfoComponent key={index} placeName={value.name} placeCount={value.count} placeImage={value.image}></DestinationInfoComponent>
                 )
-              })
+              }) 
+              :
+              <h2>No Record found for the given Destination or Location</h2>
             }
           </div>
         </div>

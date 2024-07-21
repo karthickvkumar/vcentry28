@@ -1,4 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import axios from 'axios';
+import DataSharing from '../context/context-api';
+import {useNavigate} from "react-router-dom";
 
 const TourSearchComponent = () => {
 
@@ -6,6 +9,10 @@ const TourSearchComponent = () => {
     destination: "",
     location: ""
   });
+
+  const context = useContext(DataSharing);
+
+  const navigate = useNavigate();
 
   const handleInput = (event) => {
     setTourSearch({...tourSearch, [event.target.name] : event.target.value })
@@ -15,7 +22,16 @@ const TourSearchComponent = () => {
     
     const url = `http://localhost:4000/api/destination/search?destination=${tourSearch.destination}&location=${tourSearch.location}`;
     
-    console.log(url)
+    axios.get(url)
+      .then((response) => {
+        // console.log(response.data);
+        // debugger;
+        context.exchangeValue(response.data);
+        navigate("/destination");
+      })
+      .catch((error) => {
+        alert(error);
+      })
   }
 
   return (
