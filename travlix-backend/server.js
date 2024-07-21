@@ -124,6 +124,27 @@ app.post("/api/hotel/add", (request, response) => {
     })  
 });
 
+app.get("/api/hotel/search" , (request, response) => {
+    const destination = request.query.destination;
+    
+    let sqlQuery = `SELECT * FROM karthick_hotels WHERE destination LIKE '${destination}'`;
+
+    if(destination === ''){
+        response.status(400).send("Invalid Search Data");
+    }
+    
+    
+    connection.query(sqlQuery, (error, result) => {
+        if(error){
+            response.status(500).send("Pls contact Admin");
+        }
+        else{
+            response.status(200).send(result);
+        }
+    })
+    
+})
+
 const port = 4000;
 server.listen(port, () => {
     console.log("Node JS is running on port 4000");

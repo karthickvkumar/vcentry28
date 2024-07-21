@@ -37,7 +37,7 @@ const DestinationAdminPage = () => {
     const uploadDestination = () => {
         // console.log(destinationForm);
         setLoading(true);
-        const url = "http://localhost:4000/api/destinaiton/add";
+        const url = "https://travelix-backend-28.onrender.com/api/destinaiton/add";
         axios.post(url, destinationForm)
             .then((resposne) => {
                 setLoading(false);
@@ -51,7 +51,7 @@ const DestinationAdminPage = () => {
     }
 
     const loadAllDestination = () => {
-        const url = "http://localhost:4000/api/destination/load";
+        const url = "https://travelix-backend-28.onrender.com/api/destination/load";
 
         axios.get(url)
             .then((response) => {
@@ -63,7 +63,7 @@ const DestinationAdminPage = () => {
     }
 
     const deleteDestination = (id) => {
-        const url = "http://localhost:4000/api/destination/delete/" + id;
+        const url = "https://travelix-backend-28.onrender.com/api/destination/delete/" + id;
 
         axios.delete(url)
             .then((response) => {

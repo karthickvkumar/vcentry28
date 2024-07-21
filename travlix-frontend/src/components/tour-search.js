@@ -20,7 +20,7 @@ const TourSearchComponent = () => {
 
   const filterTourList = () => {
     
-    const url = `http://localhost:4000/api/destination/search?destination=${tourSearch.destination}&location=${tourSearch.location}`;
+    const url = `https://travelix-backend-28.onrender.com/api/destination/search?destination=${tourSearch.destination}&location=${tourSearch.location}`;
     
     axios.get(url)
       .then((response) => {

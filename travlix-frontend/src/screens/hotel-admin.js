@@ -31,7 +31,7 @@ const HotelAdminPage = () => {
     const submitHotelInfo = () => {
         // console.log(hotelForm);
         setLoading(true);
-        const url = "http://localhost:4000/api/hotel/add";
+        const url = "https://travelix-backend-28.onrender.com/api/hotel/add";
 
         axios.post(url, hotelForm)
         .then((resposne) => {

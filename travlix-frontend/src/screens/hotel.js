@@ -1,28 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import HeaderComponent from '../components/header';
 import HeadingSectionComponent from '../components/heading-section';
 import HotelSearchComponent from '../components/hotel-search';
 import HotelInfoComponent from '../components/hotel-info';
 import FooterComponenet from '../components/footer';
+import DataSharing from '../context/context-api';
 
 const HotelPage = () => {
 
-  const hotelList = [
-    {
-      hotelImage : require("../images/hotel-resto-1.jpg"),
-      hotelName : "The Accord",
-      hotelPrice: 350,
-      hotelTourCount: 5,
-      hotelLocation: "Chennai, India"
-    },
-    {
-      hotelImage : require("../images/hotel-resto-2.jpg"),
-      hotelName : "The Accord",
-      hotelPrice: 350,
-      hotelTourCount: 5,
-      hotelLocation: "Chennai, India"
-    }
-  ]
+  const context = useContext(DataSharing);
+
 
   return (
     <div>
@@ -44,7 +31,7 @@ const HotelPage = () => {
         <div className="container">
           <div className="row">
             {
-              hotelList.map((value, index) => {
+              context.filterList.map((value, index) => {
                 return(
                   <HotelInfoComponent key={index} {...value}></HotelInfoComponent>
                 )
