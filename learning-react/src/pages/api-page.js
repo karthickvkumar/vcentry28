@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../interceptor';
 
 const ApiPage = () => {
 
@@ -13,7 +14,7 @@ const ApiPage = () => {
 
     const URL = "https://reqres.in/api/users?page=2";
 
-    axios.get(URL)
+    axiosInstance.get(URL)
       .then((response) => {
         console.log(response.data.data);
 
@@ -54,7 +55,7 @@ const ApiPage = () => {
     const newURL = "http://localhost:5000/api/create/user";
     // const url = "https://reqres.in/api/users";
    
-    axios.post(newURL, userForm)
+    axiosInstance.post(newURL, userForm)
       .then( (response) => {
         console.log(response.data);
       })
@@ -67,7 +68,7 @@ const ApiPage = () => {
   const getWelcomeAPIMethod = () => {
     const url = "http://localhost:5000/api/welcome";
 
-    axios.get(url)
+    axiosInstance.get(url)
       .then((response) => {
         console.log(response);
       })

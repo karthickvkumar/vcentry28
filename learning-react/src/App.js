@@ -14,6 +14,7 @@ import ProfilePage from "./pages/profile";
 import ConditionalRenderingPage from "./pages/conditional-rendering";
 import ApiPage from "./pages/api-page";
 import CRUDOperationPage from "./pages/crud";
+import LifeCycle from "./pages/life-cycle";
 
 import "./css/style.css";
 
@@ -22,6 +23,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="" element={<HomePage></HomePage>}></Route>
+        <Route path="cycle" element={<LifeCycle></LifeCycle>}></Route>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
         <Route path="about" element={<AboutPage></AboutPage>}></Route>
         {/* Nested Rotuing */}
