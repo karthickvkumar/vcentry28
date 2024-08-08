@@ -77,8 +77,13 @@ const ApiPage = () => {
       })
   }
 
+  const loggout = () => {
+    localStorage.clear();
+  }
+
   return (
     <div>
+      <button onClick={() => loggout()}>Loggout</button>
       <h2>GET Method</h2>
       <button onClick={() => getAPIMethod()}>Get API</button>
       <button onClick={() => getWelcomeAPIMethod()}>Get Welcome API</button>

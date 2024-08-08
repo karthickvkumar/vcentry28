@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
 
+  const navigate = useNavigate();
   // let name = "mr.abc";
   let [name, updateName] = useState("mr.abc");
 
@@ -39,6 +41,8 @@ const LoginPage = () => {
     // console.log(data);
 
     console.log(loginForm);
+    localStorage.setItem("isAuthenticate", true);
+    navigate("/about");
   }
 
   const rePrint = () => {

@@ -16,16 +16,36 @@ import ApiPage from "./pages/api-page";
 import CRUDOperationPage from "./pages/crud";
 import LifeCycle from "./pages/life-cycle";
 
+import ProtectedRoute from "./protected-route";
+import Uncontrolled from "./pages/uncontrolled";
+
 import "./css/style.css";
 
 const App = () => {
-  return(
+
+  return (
     <BrowserRouter>
       <Routes>
         <Route path="" element={<HomePage></HomePage>}></Route>
         <Route path="cycle" element={<LifeCycle></LifeCycle>}></Route>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
-        <Route path="about" element={<AboutPage></AboutPage>}></Route>
+        <Route path="un" element={<Uncontrolled></Uncontrolled>}></Route>
+
+        <Route path="about" element={
+          <ProtectedRoute>
+            <AboutPage></AboutPage>
+          </ProtectedRoute>
+        }></Route>
+
+        <Route path="api" element={
+          <ProtectedRoute>
+            <ApiPage></ApiPage>
+          </ProtectedRoute>
+        }></Route>
+
+
+
+
         {/* Nested Rotuing */}
         <Route path="nested" element={<NestedRoutingPage></NestedRoutingPage>}>
           <Route path="content-1" element={<NestedContent1></NestedContent1>}></Route>
@@ -37,7 +57,6 @@ const App = () => {
         <Route path="signup" element={<CreateAccountPage></CreateAccountPage>}></Route>
         <Route path="profile" element={<ProfilePage></ProfilePage>}></Route>
         <Route path="hide" element={<ConditionalRenderingPage></ConditionalRenderingPage>}></Route>
-        <Route path="api" element={<ApiPage></ApiPage>}></Route>
         <Route path="crud" element={<CRUDOperationPage></CRUDOperationPage>}></Route>
 
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>

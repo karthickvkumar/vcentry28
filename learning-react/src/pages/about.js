@@ -61,9 +61,14 @@ const AboutPage = () => {
       })
   }
 
+  const loggout = () => {
+    localStorage.clear();
+  }
+
   return(
     <div>
       <h1>Welcome, About Us Page</h1>
+      <button onClick={() => loggout()}>Loggout</button>
       <div>
         <input type="text" name="employeeName" placeholder="Employee Name..." onChange={handleInput} />
         <input type="text" name="designation" placeholder="Employee Designation..." onChange={handleInput}/>
